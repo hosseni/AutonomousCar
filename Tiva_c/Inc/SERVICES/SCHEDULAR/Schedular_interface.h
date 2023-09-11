@@ -11,7 +11,7 @@
 
 #include "../../LIB/STD_TYPES.h"
 
-#define NUM_OF_TASKS        2
+#define NUM_OF_TASKS        3
 
 
 
@@ -23,7 +23,6 @@ typedef struct
 }TASK_TCB_t;
 
 
-void RTOS_voidInit (void);
-void RTOS_voidCreatTask (uint8 Priotity, uint16 periodicity , void (*Copy_PF)(void), uint16 Delay);
-
+void tasks_scheduler (void);
+void create_task (uint8 Priotity, uint16 periodicity , void (*Copy_PF)(void), uint16 Delay);
 #endif /* INC_SERVICES_SCHEDULAR_SCHEDULAR_INTERFACE_H_ */

@@ -47,6 +47,13 @@ SCB_config.obj: ../SCB_config.c $(GEN_OPTS) | $(GEN_HDRS)
 	@echo 'Finished building: $<'
 	@echo ' '
 
+SCHEDULAR.obj: ../SCHEDULAR.c $(GEN_OPTS) | $(GEN_HDRS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: ARM Compiler'
+	"C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me -O2 --include_path="E:/Courses/Embedded_Tutoriall/EUI/EME Labs/Tiva_c/Tiva_c" --include_path="C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GE6PM --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="SCHEDULAR.d_raw" $(GEN_OPTS__FLAG) "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
 SYSTICK.obj: ../SYSTICK.c $(GEN_OPTS) | $(GEN_HDRS)
 	@echo 'Building file: $<'
 	@echo 'Invoking: ARM Compiler'
@@ -75,38 +82,10 @@ UART_program.obj: ../UART_program.c $(GEN_OPTS) | $(GEN_HDRS)
 	@echo 'Finished building: $<'
 	@echo ' '
 
-calc.obj: ../calc.c $(GEN_OPTS) | $(GEN_HDRS)
+adc.obj: ../adc.c $(GEN_OPTS) | $(GEN_HDRS)
 	@echo 'Building file: $<'
 	@echo 'Invoking: ARM Compiler'
-	"C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me -O2 --include_path="E:/Courses/Embedded_Tutoriall/EUI/EME Labs/Tiva_c/Tiva_c" --include_path="C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GE6PM --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="calc.d_raw" $(GEN_OPTS__FLAG) "$<"
-	@echo 'Finished building: $<'
-	@echo ' '
-
-calc_main.obj: ../calc_main.c $(GEN_OPTS) | $(GEN_HDRS)
-	@echo 'Building file: $<'
-	@echo 'Invoking: ARM Compiler'
-	"C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me -O2 --include_path="E:/Courses/Embedded_Tutoriall/EUI/EME Labs/Tiva_c/Tiva_c" --include_path="C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GE6PM --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="calc_main.d_raw" $(GEN_OPTS__FLAG) "$<"
-	@echo 'Finished building: $<'
-	@echo ' '
-
-delay.obj: ../delay.c $(GEN_OPTS) | $(GEN_HDRS)
-	@echo 'Building file: $<'
-	@echo 'Invoking: ARM Compiler'
-	"C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me -O2 --include_path="E:/Courses/Embedded_Tutoriall/EUI/EME Labs/Tiva_c/Tiva_c" --include_path="C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GE6PM --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="delay.d_raw" $(GEN_OPTS__FLAG) "$<"
-	@echo 'Finished building: $<'
-	@echo ' '
-
-keypad.obj: ../keypad.c $(GEN_OPTS) | $(GEN_HDRS)
-	@echo 'Building file: $<'
-	@echo 'Invoking: ARM Compiler'
-	"C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me -O2 --include_path="E:/Courses/Embedded_Tutoriall/EUI/EME Labs/Tiva_c/Tiva_c" --include_path="C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GE6PM --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="keypad.d_raw" $(GEN_OPTS__FLAG) "$<"
-	@echo 'Finished building: $<'
-	@echo ' '
-
-lcd.obj: ../lcd.c $(GEN_OPTS) | $(GEN_HDRS)
-	@echo 'Building file: $<'
-	@echo 'Invoking: ARM Compiler'
-	"C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me -O2 --include_path="E:/Courses/Embedded_Tutoriall/EUI/EME Labs/Tiva_c/Tiva_c" --include_path="C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GE6PM --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="lcd.d_raw" $(GEN_OPTS__FLAG) "$<"
+	"C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me -O2 --include_path="E:/Courses/Embedded_Tutoriall/EUI/EME Labs/Tiva_c/Tiva_c" --include_path="C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GE6PM --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="adc.d_raw" $(GEN_OPTS__FLAG) "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
@@ -114,13 +93,6 @@ main.obj: ../main.c $(GEN_OPTS) | $(GEN_HDRS)
 	@echo 'Building file: $<'
 	@echo 'Invoking: ARM Compiler'
 	"C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me -O2 --include_path="E:/Courses/Embedded_Tutoriall/EUI/EME Labs/Tiva_c/Tiva_c" --include_path="C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GE6PM --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="main.d_raw" $(GEN_OPTS__FLAG) "$<"
-	@echo 'Finished building: $<'
-	@echo ' '
-
-stopWatch.obj: ../stopWatch.c $(GEN_OPTS) | $(GEN_HDRS)
-	@echo 'Building file: $<'
-	@echo 'Invoking: ARM Compiler'
-	"C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me -O2 --include_path="E:/Courses/Embedded_Tutoriall/EUI/EME Labs/Tiva_c/Tiva_c" --include_path="C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GE6PM --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="stopWatch.d_raw" $(GEN_OPTS__FLAG) "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

@@ -11,7 +11,7 @@
 static TASK_TCB_t  TASKS[NUM_OF_TASKS];
 static uint16 Ticks;
 
-static void RTOS_voidSchadular (void)
+static void Run_Tasks (void)
 {
     uint8 i = 0;
     for (i = 0 ; i < NUM_OF_TASKS ; i++)
@@ -30,13 +30,13 @@ static void RTOS_voidSchadular (void)
     Ticks++;
 }
 
-void RTOS_voidInit (void)
+void tasks_scheduler (void)
 {
     /*SysTick to be 1 msesc with interval */
-    SYSTIC_voidSetIntervalPeriodic (1, RTOS_voidSchadular);
+    SYSTIC_voidSetIntervalPeriodic (35, Run_Tasks);
 }
 
-void RTOS_voidCreatTask (uint8 Priotity, uint16 periodicity , void (*Copy_PF)(void), uint16 Delay)
+void create_task (uint8 Priotity, uint16 periodicity , void (*Copy_PF)(void), uint16 Delay)
 {
     TASKS[Priotity].periodicty = periodicity;
     TASKS[Priotity].Copy_PF    = Copy_PF;

@@ -112,4 +112,12 @@ PDE_DEPS__QUOTED :=
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 . \
+Inc/APP/AutonomousCar \
+Inc/APP/Calc \
+Inc/APP/StopWatch \
+Inc/HAL/KEYPAD \
+Inc/HAL/LCD \
+Inc/HAL/MOTOR \
+Inc/HAL/ULTRASONIC \
+Inc/LIB \
 

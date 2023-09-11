@@ -20,6 +20,7 @@ C_SRCS += \
 ../SYSTICK_config.c \
 ../UART_config.c \
 ../UART_program.c \
+../adc.c \
 ../main.c \
 ../tm4c123ge6pm_startup_ccs.c 
 
@@ -35,6 +36,7 @@ C_DEPS += \
 ./SYSTICK_config.d \
 ./UART_config.d \
 ./UART_program.d \
+./adc.d \
 ./main.d \
 ./tm4c123ge6pm_startup_ccs.d 
 
@@ -50,6 +52,7 @@ OBJS += \
 ./SYSTICK_config.obj \
 ./UART_config.obj \
 ./UART_program.obj \
+./adc.obj \
 ./main.obj \
 ./tm4c123ge6pm_startup_ccs.obj 
 
@@ -65,6 +68,7 @@ OBJS__QUOTED += \
 "SYSTICK_config.obj" \
 "UART_config.obj" \
 "UART_program.obj" \
+"adc.obj" \
 "main.obj" \
 "tm4c123ge6pm_startup_ccs.obj" 
 
@@ -80,6 +84,7 @@ C_DEPS__QUOTED += \
 "SYSTICK_config.d" \
 "UART_config.d" \
 "UART_program.d" \
+"adc.d" \
 "main.d" \
 "tm4c123ge6pm_startup_ccs.d" 
 
@@ -95,6 +100,7 @@ C_SRCS__QUOTED += \
 "../SYSTICK_config.c" \
 "../UART_config.c" \
 "../UART_program.c" \
+"../adc.c" \
 "../main.c" \
 "../tm4c123ge6pm_startup_ccs.c" 
 

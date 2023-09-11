@@ -107,6 +107,8 @@ uint8 SCB_ActivatedClockGates[SCB_ACTIVATED_CLOCK_GATES_SIZE]=
       SCB_CLOCK_GATE_GPIOD,
       SCB_CLOCK_GATE_GPIOE,
 
+      SCB_CLOCK_GATE_ADC0,
+
 //      SCB_CLOCK_GATE_GPIOB      ,
 //
 //      SCB_CLOCK_GATE_GPIOF      ,

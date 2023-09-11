@@ -48,6 +48,10 @@ const Port_ConfigType portConfig[NUM_PINS] =
  { PIN_E2,       PIN_OUTPUT,        PIN_DIO,     PIN_AF_DISABLE,            PIN_PULLDOWN,          PIN_CURRENT_2mA},//LCD_EN
  { PIN_E3,       PIN_OUTPUT,        PIN_DIO,     PIN_AF_DISABLE,            PIN_PULLDOWN,          PIN_CURRENT_2mA},//LCD_RS
 
+
+ { PIN_D2,       PIN_INPUT,        PIN_DIO,     PIN_AF_DISABLE,            PIN_PULLDOWN,          PIN_CURRENT_2mA},//LDR1
+ { PIN_D3,       PIN_INPUT,        PIN_DIO,     PIN_AF_DISABLE,            PIN_PULLDOWN,          PIN_CURRENT_2mA},//LDR2
+
  { PIN_B2,       PIN_INPUT,         PIN_DIO,     PIN_AF_DISABLE,            PIN_PULLDOWN,          PIN_CURRENT_2mA},//ECHO
  { PIN_B3,       PIN_OUTPUT,        PIN_DIO,     PIN_AF_DISABLE,            PIN_PULLUP,            PIN_CURRENT_2mA},//TIGGER
 
