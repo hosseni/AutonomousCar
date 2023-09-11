@@ -109,34 +109,5 @@ void main(void)
     /* Infinite Loop */
     while (1)
     {
-
-
-
-//        distance =  ultarsonicSensorReadValue(&ultraSonic1);
-//
-//        LDR_L_read = ADC_Read_Data(&LDR_2);
-//        LDR_R_read = ADC_Read_Data(&LDR_1);
-//        LDR_Direction = LDR_R_read - LDR_L_read;
-//
-//        if (distance < 10)
-//        {
-//            robotMoveStop();
-//        }
-//
-//        else if (distance > 10)
-//        {
-//            if (LDR_Direction > 1000)
-//            {
-//                robotMoveRight();
-//            }
-//            else if (LDR_Direction < 0)
-//            {
-//                robotMoveLeft();
-//            }
-//            else
-//            {
-//                robotMoveForward();
-//            }
-//        }
     }
 }
