@@ -1,13 +1,12 @@
 /******************************************
  * SCHEDULAR.c
  *
- *  Created on: 9/8/2023
- *      Author: HOSSENI GAMAL
- ******************************************
  *  File Description:
  *      This file contains the implementation of a simple task scheduler. It allows tasks to be
  *      executed at specified intervals and provides the functionality to create and manage tasks.
  *      The scheduler uses the SysTick timer for timing and task execution.
+ *      Author: HOSSENI GAMAL
+ *  Created on: 9/8/2023
  ******************************************/
 
 #include "Inc/SERVICES/SCHEDULAR/Schedular_interface.h"

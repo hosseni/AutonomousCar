@@ -10,8 +10,6 @@
  *  Author: Hosseni Gamal
  *  Date: 12/9/2023
  *****************************************************************************/
-
-
 #include "AutonomousCar.h"
 
 /* External configurations and constants */
@@ -201,7 +199,5 @@ void autonomous_car_init(void)
     lcd_init(&lcd_car);
 
     robotInit();
-
-
 
 }
