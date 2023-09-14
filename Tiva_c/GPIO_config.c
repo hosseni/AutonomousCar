@@ -32,6 +32,9 @@ const Port_ConfigType portConfig[NUM_PINS] =
  // { PIN_F2,       PIN_OUTPUT,         PIN_DIO,     PIN_AF_DISABLE,            PIN_PULLDOWN,          PIN_CURRENT_2mA},
  // { PIN_F3,       PIN_OUTPUT,         PIN_DIO,     PIN_AF_DISABLE,            PIN_PULLDOWN,          PIN_CURRENT_2mA},
 
+  { PIN_F0,       PIN_INPUT,         PIN_DIO,     PIN_AF_DISABLE,            PIN_PULLUP,          PIN_CURRENT_2mA},//start button
+  { PIN_F4,       PIN_INPUT,         PIN_DIO,     PIN_AF_DISABLE,            PIN_PULLUP,          PIN_CURRENT_2mA},//stop  button
+
  { PIN_B7,       PIN_OUTPUT,        PIN_DIO,     PIN_AF_DISABLE,            PIN_PULLDOWN,          PIN_CURRENT_2mA},//SIDE_A_PIN0
  { PIN_B1,       PIN_OUTPUT,        PIN_DIO,     PIN_AF_DISABLE,            PIN_PULLDOWN,          PIN_CURRENT_2mA},//SIDE_A_PIN1
  { PIN_B5,       PIN_OUTPUT,        PIN_DIO,     PIN_AF_DISABLE,            PIN_PULLDOWN,          PIN_CURRENT_2mA},//SIDE_B_PIN0

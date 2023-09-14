@@ -18,6 +18,7 @@ main.obj: ../Inc/HAL/LCD/lcd.h
 main.obj: ../Inc/HAL/LCD/lcd_config.h
 main.obj: ../Inc/HAL/LCD/../../LIB/DELAY.h
 main.obj: ../Inc/HAL/MOTOR/motor.h
+main.obj: ../Inc/HAL/SWITCH/switch.h
 main.obj: ../Inc/APP/AutonomousCar/AutonomousCar.h
 main.obj: ../hw_gpio.h
 main.obj: C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/stdlib.h
@@ -41,6 +42,7 @@ main.obj: C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/linkage.h
 ../Inc/HAL/LCD/lcd_config.h: 
 ../Inc/HAL/LCD/../../LIB/DELAY.h: 
 ../Inc/HAL/MOTOR/motor.h: 
+../Inc/HAL/SWITCH/switch.h: 
 ../Inc/APP/AutonomousCar/AutonomousCar.h: 
 ../hw_gpio.h: 
 C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/stdlib.h: 

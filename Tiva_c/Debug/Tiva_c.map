@@ -1,33 +1,33 @@
 ******************************************************************************
                   TI ARM Linker PC v16.9.4                     
 ******************************************************************************
->> Linked Mon Sep 11 15:55:27 2023
+>> Linked Thu Sep 14 14:53:50 2023
 
 OUTPUT FILE NAME:   <Tiva_c.out>
-ENTRY POINT SYMBOL: "_c_int00"  address: 00002aed
+ENTRY POINT SYMBOL: "_c_int00"  address: 00002c01
 
 
 MEMORY CONFIGURATION
 
          name            origin    length      used     unused   attr    fill
 ----------------------  --------  ---------  --------  --------  ----  --------
-  FLASH                 00000000   00020000  00002e6d  0001d193  R  X
-  SRAM                  20000000   00008000  000002e0  00007d20  RW X
+  FLASH                 00000000   00020000  00002f89  0001d077  R  X
+  SRAM                  20000000   00008000  000002e6  00007d1a  RW X
 
 
 SEGMENT ALLOCATION MAP
 
 run origin  load origin   length   init length attrs members
 ----------  ----------- ---------- ----------- ----- -------
-00000000    00000000    00002e70   00002e70    r-x
+00000000    00000000    00002f90   00002f90    r-x
   00000000    00000000    0000026c   0000026c    r-- .intvecs
-  0000026c    0000026c    00002a52   00002a52    r-x .text
-  00002cc0    00002cc0    00000147   00000147    r-- .const
-  00002e08    00002e08    00000068   00000068    r-- .cinit
-20000000    20000000    000002e0   00000000    rw-
+  0000026c    0000026c    00002b66   00002b66    r-x .text
+  00002dd4    00002dd4    00000147   00000147    r-- .const
+  00002f20    00002f20    00000070   00000070    r-- .cinit
+20000000    20000000    000002e9   00000000    rw-
   20000000    20000000    00000200   00000000    rw- .stack
-  20000200    20000200    0000008c   00000000    rw- .bss
-  2000028c    2000028c    00000054   00000000    rw- .data
+  20000200    20000200    0000008d   00000000    rw- .bss
+  20000290    20000290    00000059   00000000    rw- .data
 
 
 SECTION ALLOCATION MAP
@@ -38,55 +38,58 @@ section   page    origin      length       input sections
 .intvecs   0    00000000    0000026c     
                   00000000    0000026c     tm4c123ge6pm_startup_ccs.obj (.intvecs)
 
-.text      0    0000026c    00002a52     
+.text      0    0000026c    00002b66     
                   0000026c    00000e98     GPIO.obj (.text)
                   00001104    000006ea     lcd.obj (.text)
                   000017ee    00000002     rtsv7M4_T_le_v4SPD16_eabi.lib : mpu_init.obj (.text)
                   000017f0    000003ac     GPT.obj (.text)
                   00001b9c    00000244     SCB.obj (.text)
-                  00001de0    000001b6     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_add_t2.obj (.text)
-                  00001f96    00000002                                   : startup.obj (.text)
-                  00001f98    00000194     SYSTICK.obj (.text)
-                  0000212c    00000184     main.obj (.text)
-                  000022b0    00000136     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_div_t2.obj (.text)
-                  000023e6    00000002     --HOLE-- [fill = 0]
-                  000023e8    0000012c     adc.obj (.text)
-                  00002514    000000fc     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_mul_t2.obj (.text)
-                  00002610    000000fc     ultrasonic.obj (.text)
-                  0000270c    000000d0     SCHEDULAR.obj (.text)
-                  000027dc    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.obj (.text)
-                  00002878    00000094     motor.obj (.text)
-                  0000290c    0000008c     AutonomousCar.obj (.text)
-                  00002998    0000007a     rtsv7M4_T_le_v4SPD16_eabi.lib : memset_t2.obj (.text)
-                  00002a12    00000002     --HOLE-- [fill = 0]
-                  00002a14    00000070                                   : autoinit.obj (.text)
-                  00002a84    00000068                                   : copy_decompress_lzss.obj (.text:decompress:lzss)
-                  00002aec    00000054                                   : boot.obj (.text)
-                  00002b40    00000054                                   : exit.obj (.text)
-                  00002b94    0000004c                                   : cpy_tbl.obj (.text)
-                  00002be0    00000044                                   : fd_tou_t2.obj (.text)
-                  00002c24    00000024     delay.obj (.text)
-                  00002c48    00000020     rtsv7M4_T_le_v4SPD16_eabi.lib : u_tofd_t2.obj (.text)
-                  00002c68    00000018                                   : args_main.obj (.text)
-                  00002c80    00000014                                   : _lock.obj (.text)
-                  00002c94    0000000e                                   : copy_decompress_none.obj (.text:decompress:none)
-                  00002ca2    0000000c                                   : copy_zero_init.obj (.text:decompress:ZI)
-                  00002cae    0000000c     tm4c123ge6pm_startup_ccs.obj (.text)
-                  00002cba    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.obj (.text)
+                  00001de0    00000234     main.obj (.text)
+                  00002014    000001b6     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_add_t2.obj (.text)
+                  000021ca    00000002                                   : startup.obj (.text)
+                  000021cc    00000194     SYSTICK.obj (.text)
+                  00002360    00000136     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_div_t2.obj (.text)
+                  00002496    00000002     --HOLE-- [fill = 0]
+                  00002498    0000012c     adc.obj (.text)
+                  000025c4    000000fc     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_mul_t2.obj (.text)
+                  000026c0    000000fc     ultrasonic.obj (.text)
+                  000027bc    000000d0     SCHEDULAR.obj (.text)
+                  0000288c    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.obj (.text)
+                  00002928    00000094     motor.obj (.text)
+                  000029bc    0000008c     AutonomousCar.obj (.text)
+                  00002a48    0000007a     rtsv7M4_T_le_v4SPD16_eabi.lib : memset_t2.obj (.text)
+                  00002ac2    00000002     --HOLE-- [fill = 0]
+                  00002ac4    00000070                                   : autoinit.obj (.text)
+                  00002b34    00000068                                   : copy_decompress_lzss.obj (.text:decompress:lzss)
+                  00002b9c    00000062     switch.obj (.text)
+                  00002bfe    00000002     --HOLE-- [fill = 0]
+                  00002c00    00000054     rtsv7M4_T_le_v4SPD16_eabi.lib : boot.obj (.text)
+                  00002c54    00000054                                   : exit.obj (.text)
+                  00002ca8    0000004c                                   : cpy_tbl.obj (.text)
+                  00002cf4    00000044                                   : fd_tou_t2.obj (.text)
+                  00002d38    00000024     delay.obj (.text)
+                  00002d5c    00000020     rtsv7M4_T_le_v4SPD16_eabi.lib : u_tofd_t2.obj (.text)
+                  00002d7c    00000018                                   : args_main.obj (.text)
+                  00002d94    00000014                                   : _lock.obj (.text)
+                  00002da8    0000000e                                   : copy_decompress_none.obj (.text:decompress:none)
+                  00002db6    0000000c                                   : copy_zero_init.obj (.text:decompress:ZI)
+                  00002dc2    0000000c     tm4c123ge6pm_startup_ccs.obj (.text)
+                  00002dce    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.obj (.text)
 
-.const     0    00002cc0    00000147     
-                  00002cc0    00000102     GPIO_config.obj (.const:portConfig)
-                  00002dc2    00000030     GPT_config.obj (.const:gptConfig)
-                  00002df2    00000002     --HOLE-- [fill = 0]
-                  00002df4    00000010     SCB_config.obj (.const:SCBConfig)
-                  00002e04    00000003     SYSTICK_config.obj (.const:SYSTIC_Config)
+.const     0    00002dd4    00000147     
+                  00002dd4    00000102     GPIO_config.obj (.const:portConfig)
+                  00002ed6    00000030     GPT_config.obj (.const:gptConfig)
+                  00002f06    00000002     --HOLE-- [fill = 0]
+                  00002f08    00000010     SCB_config.obj (.const:SCBConfig)
+                  00002f18    00000003     SYSTICK_config.obj (.const:SYSTIC_Config)
 
-.cinit     0    00002e08    00000068     
-                  00002e08    00000040     (.cinit..data.load) [load image, compression = lzss]
-                  00002e48    0000000c     (__TI_handler_table)
-                  00002e54    00000004     --HOLE-- [fill = 0]
-                  00002e58    00000008     (.cinit..bss.load) [load image, compression = zero_init]
-                  00002e60    00000010     (__TI_cinit_table)
+.cinit     0    00002f20    00000070     
+                  00002f20    00000046     (.cinit..data.load) [load image, compression = lzss]
+                  00002f66    00000002     --HOLE-- [fill = 0]
+                  00002f68    0000000c     (__TI_handler_table)
+                  00002f74    00000004     --HOLE-- [fill = 0]
+                  00002f78    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00002f80    00000010     (__TI_cinit_table)
 
 .init_array 
 *          0    00000000    00000000     UNINITIALIZED
@@ -94,7 +97,7 @@ section   page    origin      length       input sections
 .stack     0    20000000    00000200     UNINITIALIZED
                   20000000    00000200     --HOLE--
 
-.bss       0    20000200    0000008c     UNINITIALIZED
+.bss       0    20000200    0000008d     UNINITIALIZED
                   20000200    00000030     GPT.obj (.bss:isr_timer)
                   20000230    00000030     (.common:captured_val)
                   20000260    00000018     SCHEDULAR.obj (.bss:TASKS)
@@ -105,22 +108,24 @@ section   page    origin      length       input sections
                   20000288    00000002     SCHEDULAR.obj (.bss)
                   2000028a    00000001     (.common:SYSTICK_u8ModeOfInterval)
                   2000028b    00000001     (.common:move_flag)
+                  2000028c    00000001     (.common:start_move_flag)
 
-.data      0    2000028c    00000054     UNINITIALIZED
-                  2000028c    0000000c     rtsv7M4_T_le_v4SPD16_eabi.lib : exit.obj (.data:$O1$$)
-                  20000298    0000000c     SCB_config.obj (.data:SCB_ActivatedClockGates)
-                  200002a4    0000000b     main.obj (.data:lcd_car)
-                  200002af    00000001     --HOLE--
-                  200002b0    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : _lock.obj (.data:$O1$$)
-                  200002b8    00000008     SYSTICK.obj (.data)
-                  200002c0    00000006     main.obj (.data:LDR_1)
-                  200002c6    00000006     main.obj (.data:LDR_2)
-                  200002cc    00000005     SCB.obj (.data)
-                  200002d1    00000004     AutonomousCar.obj (.data:LEFT_SIDE)
-                  200002d5    00000004     AutonomousCar.obj (.data:RIGHT_SIDE)
-                  200002d9    00000002     main.obj (.data:ultraSonic1)
-                  200002db    00000001     --HOLE--
-                  200002dc    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : stkdepth_vars.obj (.data)
+.data      0    20000290    00000059     UNINITIALIZED
+                  20000290    0000000c     rtsv7M4_T_le_v4SPD16_eabi.lib : exit.obj (.data:$O1$$)
+                  2000029c    0000000c     SCB_config.obj (.data:SCB_ActivatedClockGates)
+                  200002a8    0000000b     main.obj (.data:lcd_car)
+                  200002b3    00000001     --HOLE--
+                  200002b4    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : _lock.obj (.data:$O1$$)
+                  200002bc    00000008     SYSTICK.obj (.data)
+                  200002c4    00000006     main.obj (.data:LDR_1)
+                  200002ca    00000006     main.obj (.data:LDR_2)
+                  200002d0    00000005     SCB.obj (.data)
+                  200002d5    00000004     AutonomousCar.obj (.data:LEFT_SIDE)
+                  200002d9    00000004     AutonomousCar.obj (.data:RIGHT_SIDE)
+                  200002dd    00000003     main.obj (.data:start_button)
+                  200002e0    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : stkdepth_vars.obj (.data)
+                  200002e4    00000003     main.obj (.data:stop_button)
+                  200002e7    00000002     main.obj (.data:ultraSonic1)
 
 MODULE SUMMARY
 
@@ -130,8 +135,8 @@ MODULE SUMMARY
        GPIO.obj                       3736    0         0      
        GPT.obj                        940     0         96     
        tm4c123ge6pm_startup_ccs.obj   12      620       0      
+       main.obj                       564     0         49     
        SCB.obj                        580     0         5      
-       main.obj                       388     0         42     
        SYSTICK.obj                    404     0         9      
        adc.obj                        300     0         0      
        GPIO_config.obj                0       258       0      
@@ -140,7 +145,7 @@ MODULE SUMMARY
        SCB_config.obj                 0       16        12     
        SYSTICK_config.obj             0       3         0      
     +--+------------------------------+-------+---------+---------+
-       Total:                         6568    945       190    
+       Total:                         6744    945       197    
                                                                
     .\Inc\APP\AutonomousCar\
        AutonomousCar.obj              140     0         8      
@@ -156,6 +161,11 @@ MODULE SUMMARY
        motor.obj                      148     0         0      
     +--+------------------------------+-------+---------+---------+
        Total:                         148     0         0      
+                                                               
+    .\Inc\HAL\SWITCH\
+       switch.obj                     98      0         0      
+    +--+------------------------------+-------+---------+---------+
+       Total:                         98      0         0      
                                                                
     .\Inc\HAL\ULTRASONIC\
        ultrasonic.obj                 252     0         0      
@@ -192,21 +202,21 @@ MODULE SUMMARY
        Total:                         1916    0         24     
                                                                
        Stack:                         0       0         512    
-       Linker Generated:              0       100       0      
+       Linker Generated:              0       106       0      
     +--+------------------------------+-------+---------+---------+
-       Grand Total:                   10830   1045      734    
+       Grand Total:                   11104   1051      741    
 
 
 LINKER GENERATED COPY TABLES
 
-__TI_cinit_table @ 00002e60 records: 2, size/record: 8, table size: 16
-	.data: load addr=00002e08, load size=00000040 bytes, run addr=2000028c, run size=00000054 bytes, compression=lzss
-	.bss: load addr=00002e58, load size=00000008 bytes, run addr=20000200, run size=0000008c bytes, compression=zero_init
+__TI_cinit_table @ 00002f80 records: 2, size/record: 8, table size: 16
+	.data: load addr=00002f20, load size=00000046 bytes, run addr=20000290, run size=00000059 bytes, compression=lzss
+	.bss: load addr=00002f78, load size=00000008 bytes, run addr=20000200, run size=0000008d bytes, compression=zero_init
 
 
 LINKER GENERATED HANDLER TABLE
 
-__TI_handler_table @ 00002e48 records: 3, size/record: 4, table size: 12
+__TI_handler_table @ 00002f68 records: 3, size/record: 4, table size: 12
 	index: 0, handler: __TI_decompress_lzss
 	index: 1, handler: __TI_decompress_none
 	index: 2, handler: __TI_zero_init
@@ -216,9 +226,9 @@ GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name
 
 address   name                           
 -------   ----                           
-000023e9  ADC_Init                       
-00002481  ADC_Read_Data                  
-00002b41  C$$EXIT                        
+00002499  ADC_Init                       
+00002531  ADC_Read_Data                  
+00002c55  C$$EXIT                        
 000010c1  DIO_FlipChannel                
 00000ce1  DIO_Init                       
 00000e11  DIO_ReadChannel                
@@ -231,17 +241,17 @@ address   name
 00001b01  GPT_StartTimer                 
 00001b2d  GPT_getValue                   
 00001b51  GPT_stopTimer                  
-200002b8  InitPtr                        
-200002c0  LDR_1                          
-200002c6  LDR_2                          
+200002bc  InitPtr                        
+200002c4  LDR_1                          
+200002ca  LDR_2                          
 20000278  LDR_Direction                  
 2000027c  LDR_L_read                     
 20000280  LDR_R_read                     
-200002d1  LEFT_SIDE                      
-200002d5  RIGHT_SIDE                     
-00002caf  ResetISR                       
-00002df4  SCBConfig                      
-20000298  SCB_ActivatedClockGates        
+200002d5  LEFT_SIDE                      
+200002d9  RIGHT_SIDE                     
+00002dc3  ResetISR                       
+00002f08  SCBConfig                      
+2000029c  SCB_ActivatedClockGates        
 00001d85  SCB_DistributePllClock         
 00001db3  SCB_GetPllStatus               
 00001bb3  SCB_GetResetRawValue           
@@ -250,77 +260,78 @@ address   name
 00001bc9  SCB_PerformReset               
 UNDEFED   SHT$$INIT_ARRAY$$Base          
 UNDEFED   SHT$$INIT_ARRAY$$Limit         
-000020dd  SYSTICK_Handler                
-00001f99  SYSTICK_Init                   
-00002015  SYSTICK_setBusyWait            
+00002311  SYSTICK_Handler                
+000021cd  SYSTICK_Init                   
+00002249  SYSTICK_setBusyWait            
 2000028a  SYSTICK_u8ModeOfInterval       
-00002e04  SYSTIC_Config                  
-00002075  SYSTIC_voidSetIntervalPeriodic 
+00002f18  SYSTIC_Config                  
+000022a9  SYSTIC_voidSetIntervalPeriodic 
 000017f1  TIMER0A_Handler                
 0000182f  TIMER1A_Handler                
 0000186d  TIMER2A_Handler                
 20000200  __STACK_END                    
 00000200  __STACK_SIZE                   
 20000200  __STACK_TOP                    
-00002e60  __TI_CINIT_Base                
-00002e70  __TI_CINIT_Limit               
-00002e48  __TI_Handler_Table_Base        
-00002e54  __TI_Handler_Table_Limit       
-00002a15  __TI_auto_init                 
-2000028c  __TI_cleanup_ptr               
-00002a85  __TI_decompress_lzss           
-00002c95  __TI_decompress_none           
-20000290  __TI_dtors_ptr                 
-20000294  __TI_enable_exit_profile_output
+00002f80  __TI_CINIT_Base                
+00002f90  __TI_CINIT_Limit               
+00002f68  __TI_Handler_Table_Base        
+00002f74  __TI_Handler_Table_Limit       
+00002ac5  __TI_auto_init                 
+20000290  __TI_cleanup_ptr               
+00002b35  __TI_decompress_lzss           
+00002da9  __TI_decompress_none           
+20000294  __TI_dtors_ptr                 
+20000298  __TI_enable_exit_profile_output
 ffffffff  __TI_pprof_out_hndl            
 ffffffff  __TI_prof_data_size            
 ffffffff  __TI_prof_data_start           
 00000000  __TI_static_base__             
-00002ca3  __TI_zero_init                 
-00002be1  __aeabi_d2uiz                  
-00001deb  __aeabi_dadd                   
-000022b1  __aeabi_ddiv                   
-00002515  __aeabi_dmul                   
-00001de1  __aeabi_dsub                   
-00002999  __aeabi_memclr                 
-00002999  __aeabi_memclr4                
-00002999  __aeabi_memclr8                
-000027dd  __aeabi_memcpy                 
-000027dd  __aeabi_memcpy4                
-000027dd  __aeabi_memcpy8                
-0000299b  __aeabi_memset                 
-0000299b  __aeabi_memset4                
-0000299b  __aeabi_memset8                
-00002c49  __aeabi_ui2d                   
+00002db7  __TI_zero_init                 
+00002cf5  __aeabi_d2uiz                  
+0000201f  __aeabi_dadd                   
+00002361  __aeabi_ddiv                   
+000025c5  __aeabi_dmul                   
+00002015  __aeabi_dsub                   
+00002a49  __aeabi_memclr                 
+00002a49  __aeabi_memclr4                
+00002a49  __aeabi_memclr8                
+0000288d  __aeabi_memcpy                 
+0000288d  __aeabi_memcpy4                
+0000288d  __aeabi_memcpy8                
+00002a4b  __aeabi_memset                 
+00002a4b  __aeabi_memset4                
+00002a4b  __aeabi_memset8                
+00002d5d  __aeabi_ui2d                   
 ffffffff  __binit__                      
 ffffffff  __c_args__                     
 000017ef  __mpu_init                     
 20000000  __stack                        
-00002c69  _args_main                     
-00002aed  _c_int00                       
-200002b0  _lock                          
-00002c8f  _nop                           
-00002c87  _register_lock                 
-00002c81  _register_unlock               
-00001f97  _system_post_cinit             
-00002cbb  _system_pre_init               
-200002b4  _unlock                        
-00002b45  abort                          
-0000218d  avoid_obstacles                
+00002d7d  _args_main                     
+00002c01  _c_int00                       
+200002b4  _lock                          
+00002da3  _nop                           
+00002d9b  _register_lock                 
+00002d95  _register_unlock               
+000021cb  _system_post_cinit             
+00002dcf  _system_pre_init               
+200002b8  _unlock                        
+00002c59  abort                          
+00001ed7  avoid_obstacles                
 ffffffff  binit                          
+00002b9d  button_get_state               
 20000230  captured_val                   
-000028a1  carSideConfig                  
-00002879  carSideInit                    
-00002b95  copy_in                        
-0000278b  create_task                    
-00002c25  delay                          
-00002611  delay_micro                    
+00002951  carSideConfig                  
+00002929  carSideInit                    
+00002ca9  copy_in                        
+0000283b  create_task                    
+00002d39  delay                          
+000026c1  delay_micro                    
 20000284  distance                       
-00002b4d  exit                           
+00002c61  exit                           
 00000000  g_pfnVectors                   
-00002dc2  gptConfig                      
-200002a4  lcd_car                        
-0000217d  lcd_display                    
+00002ed6  gptConfig                      
+200002a8  lcd_car                        
+00001eb1  lcd_display                    
 000012c9  lcd_init                       
 0000174b  lcd_sendFloat                  
 00001377  lcd_send_chr                   
@@ -332,23 +343,27 @@ ffffffff  binit
 000014f9  lcd_send_string                
 00001533  lcd_send_string_pos            
 00001263  lcd_set_cursor                 
-0000212d  ldr_swing_car                  
-000021b9  main                           
-200002dc  main_func_sp                   
-000027dd  memcpy                         
-000029a1  memset                         
+00001e07  ldr_swing_car                  
+00001f19  main                           
+200002e0  main_func_sp                   
+0000288d  memcpy                         
+00002a51  memset                         
 2000028b  move_flag                      
-00002cc0  portConfig                     
-0000290d  robotInit                      
-00002919  robotMoveForward               
-00002955  robotMoveLeft                  
-00002969  robotMoveRight                 
-00002941  robotMoveRotate                
-0000292d  robotMoveStop                  
-0000297d  robotMoveback                  
-0000277f  tasks_scheduler                
-00002631  ultarsonicSensorReadValue      
-200002d9  ultraSonic1                    
+00002dd4  portConfig                     
+000029bd  robotInit                      
+000029c9  robotMoveForward               
+00002a05  robotMoveLeft                  
+00002a19  robotMoveRight                 
+000029f1  robotMoveRotate                
+000029dd  robotMoveStop                  
+00002a2d  robotMoveback                  
+200002dd  start_button                   
+2000028c  start_move_flag                
+00001de1  start_stop_condition           
+200002e4  stop_button                    
+0000282f  tasks_scheduler                
+000026e1  ultarsonicSensorReadValue      
+200002e7  ultraSonic1                    
 
 
 GLOBAL SYMBOLS: SORTED BY Symbol Address 
@@ -391,71 +406,73 @@ address   name
 00001bd7  SCB_InitClock                  
 00001d85  SCB_DistributePllClock         
 00001db3  SCB_GetPllStatus               
-00001de1  __aeabi_dsub                   
-00001deb  __aeabi_dadd                   
-00001f97  _system_post_cinit             
-00001f99  SYSTICK_Init                   
-00002015  SYSTICK_setBusyWait            
-00002075  SYSTIC_voidSetIntervalPeriodic 
-000020dd  SYSTICK_Handler                
-0000212d  ldr_swing_car                  
-0000217d  lcd_display                    
-0000218d  avoid_obstacles                
-000021b9  main                           
-000022b1  __aeabi_ddiv                   
-000023e9  ADC_Init                       
-00002481  ADC_Read_Data                  
-00002515  __aeabi_dmul                   
-00002611  delay_micro                    
-00002631  ultarsonicSensorReadValue      
-0000277f  tasks_scheduler                
-0000278b  create_task                    
-000027dd  __aeabi_memcpy                 
-000027dd  __aeabi_memcpy4                
-000027dd  __aeabi_memcpy8                
-000027dd  memcpy                         
-00002879  carSideInit                    
-000028a1  carSideConfig                  
-0000290d  robotInit                      
-00002919  robotMoveForward               
-0000292d  robotMoveStop                  
-00002941  robotMoveRotate                
-00002955  robotMoveLeft                  
-00002969  robotMoveRight                 
-0000297d  robotMoveback                  
-00002999  __aeabi_memclr                 
-00002999  __aeabi_memclr4                
-00002999  __aeabi_memclr8                
-0000299b  __aeabi_memset                 
-0000299b  __aeabi_memset4                
-0000299b  __aeabi_memset8                
-000029a1  memset                         
-00002a15  __TI_auto_init                 
-00002a85  __TI_decompress_lzss           
-00002aed  _c_int00                       
-00002b41  C$$EXIT                        
-00002b45  abort                          
-00002b4d  exit                           
-00002b95  copy_in                        
-00002be1  __aeabi_d2uiz                  
-00002c25  delay                          
-00002c49  __aeabi_ui2d                   
-00002c69  _args_main                     
-00002c81  _register_unlock               
-00002c87  _register_lock                 
-00002c8f  _nop                           
-00002c95  __TI_decompress_none           
-00002ca3  __TI_zero_init                 
-00002caf  ResetISR                       
-00002cbb  _system_pre_init               
-00002cc0  portConfig                     
-00002dc2  gptConfig                      
-00002df4  SCBConfig                      
-00002e04  SYSTIC_Config                  
-00002e48  __TI_Handler_Table_Base        
-00002e54  __TI_Handler_Table_Limit       
-00002e60  __TI_CINIT_Base                
-00002e70  __TI_CINIT_Limit               
+00001de1  start_stop_condition           
+00001e07  ldr_swing_car                  
+00001eb1  lcd_display                    
+00001ed7  avoid_obstacles                
+00001f19  main                           
+00002015  __aeabi_dsub                   
+0000201f  __aeabi_dadd                   
+000021cb  _system_post_cinit             
+000021cd  SYSTICK_Init                   
+00002249  SYSTICK_setBusyWait            
+000022a9  SYSTIC_voidSetIntervalPeriodic 
+00002311  SYSTICK_Handler                
+00002361  __aeabi_ddiv                   
+00002499  ADC_Init                       
+00002531  ADC_Read_Data                  
+000025c5  __aeabi_dmul                   
+000026c1  delay_micro                    
+000026e1  ultarsonicSensorReadValue      
+0000282f  tasks_scheduler                
+0000283b  create_task                    
+0000288d  __aeabi_memcpy                 
+0000288d  __aeabi_memcpy4                
+0000288d  __aeabi_memcpy8                
+0000288d  memcpy                         
+00002929  carSideInit                    
+00002951  carSideConfig                  
+000029bd  robotInit                      
+000029c9  robotMoveForward               
+000029dd  robotMoveStop                  
+000029f1  robotMoveRotate                
+00002a05  robotMoveLeft                  
+00002a19  robotMoveRight                 
+00002a2d  robotMoveback                  
+00002a49  __aeabi_memclr                 
+00002a49  __aeabi_memclr4                
+00002a49  __aeabi_memclr8                
+00002a4b  __aeabi_memset                 
+00002a4b  __aeabi_memset4                
+00002a4b  __aeabi_memset8                
+00002a51  memset                         
+00002ac5  __TI_auto_init                 
+00002b35  __TI_decompress_lzss           
+00002b9d  button_get_state               
+00002c01  _c_int00                       
+00002c55  C$$EXIT                        
+00002c59  abort                          
+00002c61  exit                           
+00002ca9  copy_in                        
+00002cf5  __aeabi_d2uiz                  
+00002d39  delay                          
+00002d5d  __aeabi_ui2d                   
+00002d7d  _args_main                     
+00002d95  _register_unlock               
+00002d9b  _register_lock                 
+00002da3  _nop                           
+00002da9  __TI_decompress_none           
+00002db7  __TI_zero_init                 
+00002dc3  ResetISR                       
+00002dcf  _system_pre_init               
+00002dd4  portConfig                     
+00002ed6  gptConfig                      
+00002f08  SCBConfig                      
+00002f18  SYSTIC_Config                  
+00002f68  __TI_Handler_Table_Base        
+00002f74  __TI_Handler_Table_Limit       
+00002f80  __TI_CINIT_Base                
+00002f90  __TI_CINIT_Limit               
 20000000  __stack                        
 20000200  __STACK_END                    
 20000200  __STACK_TOP                    
@@ -466,20 +483,23 @@ address   name
 20000284  distance                       
 2000028a  SYSTICK_u8ModeOfInterval       
 2000028b  move_flag                      
-2000028c  __TI_cleanup_ptr               
-20000290  __TI_dtors_ptr                 
-20000294  __TI_enable_exit_profile_output
-20000298  SCB_ActivatedClockGates        
-200002a4  lcd_car                        
-200002b0  _lock                          
-200002b4  _unlock                        
-200002b8  InitPtr                        
-200002c0  LDR_1                          
-200002c6  LDR_2                          
-200002d1  LEFT_SIDE                      
-200002d5  RIGHT_SIDE                     
-200002d9  ultraSonic1                    
-200002dc  main_func_sp                   
+2000028c  start_move_flag                
+20000290  __TI_cleanup_ptr               
+20000294  __TI_dtors_ptr                 
+20000298  __TI_enable_exit_profile_output
+2000029c  SCB_ActivatedClockGates        
+200002a8  lcd_car                        
+200002b4  _lock                          
+200002b8  _unlock                        
+200002bc  InitPtr                        
+200002c4  LDR_1                          
+200002ca  LDR_2                          
+200002d5  LEFT_SIDE                      
+200002d9  RIGHT_SIDE                     
+200002dd  start_button                   
+200002e0  main_func_sp                   
+200002e4  stop_button                    
+200002e7  ultraSonic1                    
 ffffffff  __TI_pprof_out_hndl            
 ffffffff  __TI_prof_data_size            
 ffffffff  __TI_prof_data_start           
@@ -489,4 +509,4 @@ ffffffff  binit
 UNDEFED   SHT$$INIT_ARRAY$$Base          
 UNDEFED   SHT$$INIT_ARRAY$$Limit         
 
-[133 symbols]
+[138 symbols]

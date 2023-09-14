@@ -118,6 +118,7 @@ Inc/APP/StopWatch \
 Inc/HAL/KEYPAD \
 Inc/HAL/LCD \
 Inc/HAL/MOTOR \
+Inc/HAL/SWITCH \
 Inc/HAL/ULTRASONIC \
 Inc/LIB \
 
