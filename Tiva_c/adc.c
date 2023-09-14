@@ -9,6 +9,15 @@
 
 void ADC_Init(const adc_config_t*const PTR)
 {
+
+    GPIO_PORTD_AFSEL_R |= (1<<2);
+    GPIO_PORTD_DEN_R &= ~(1<<2);
+    GPIO_PORTD_AMSEL_R|= (1<<2);
+
+    GPIO_PORTD_AFSEL_R |= (1<<3);
+    GPIO_PORTD_DEN_R &= ~(1<<3);
+    GPIO_PORTD_AMSEL_R|= (1<<3);
+
     if(PTR != NULL)
     {
         /*Determine Base address for the adc module*/
@@ -37,8 +46,8 @@ void ADC_Init(const adc_config_t*const PTR)
 
         if(PTR->sequencer == ADC_sequencer_3)
         {
-//            SET_BIT(ADC_GEN_REG(base_add , ADCSSCTL3_reg_offset) , 1);
-//            SET_BIT(ADC_GEN_REG(base_add , ADCSSCTL3_reg_offset) , 2);
+            //            SET_BIT(ADC_GEN_REG(base_add , ADCSSCTL3_reg_offset) , 1);
+            //            SET_BIT(ADC_GEN_REG(base_add , ADCSSCTL3_reg_offset) , 2);
             SET_BIT(ADC0_SSCTL3_R , 1);
             SET_BIT(ADC0_SSCTL3_R , 2);
         }
@@ -57,11 +66,11 @@ void ADC_Init(const adc_config_t*const PTR)
     {
         //do nothing
     }
-   
+
 }
 unsigned int ADC_Read_Data(const adc_config_t* PTR)
 {
-    
+
     unsigned int adc_value;
     if(PTR != NULL)
     {
@@ -93,7 +102,7 @@ unsigned int ADC_Read_Data(const adc_config_t* PTR)
             /*clear end of conversion flag*/
             //CLR_BIT(ADC_GEN_REG(base_add , ADCISC_reg_offset) , 3);
             SET_BIT(ADC0_ISC_R , 3);
-            
+
         }
     }
     else

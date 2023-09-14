@@ -25,6 +25,7 @@ ORDERED_OBJS += \
 "./main.obj" \
 "./tm4c123ge6pm_startup_ccs.obj" \
 "./Inc/APP/AutonomousCar/AutonomousCar.obj" \
+"./Inc/APP/AutonomousCar/AutonomousCar_HandleMain.obj" \
 "./Inc/APP/Calc/calc.obj" \
 "./Inc/APP/Calc/calc_main.obj" \
 "./Inc/APP/StopWatch/stopWatch.obj" \
@@ -194,8 +195,8 @@ Tiva_c.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "GPIO.obj" "GPIO_config.obj" "GPT.obj" "GPT_config.obj" "SCB.obj" "SCB_config.obj" "SCHEDULAR.obj" "SYSTICK.obj" "SYSTICK_config.obj" "UART_config.obj" "UART_program.obj" "adc.obj" "main.obj" "tm4c123ge6pm_startup_ccs.obj" "Inc\APP\AutonomousCar\AutonomousCar.obj" "Inc\APP\Calc\calc.obj" "Inc\APP\Calc\calc_main.obj" "Inc\APP\StopWatch\stopWatch.obj" "Inc\HAL\KEYPAD\keypad.obj" "Inc\HAL\LCD\lcd.obj" "Inc\HAL\MOTOR\motor.obj" "Inc\HAL\SWITCH\switch.obj" "Inc\HAL\ULTRASONIC\ultrasonic.obj" "Inc\LIB\delay.obj" 
-	-$(RM) "GPIO.d" "GPIO_config.d" "GPT.d" "GPT_config.d" "SCB.d" "SCB_config.d" "SCHEDULAR.d" "SYSTICK.d" "SYSTICK_config.d" "UART_config.d" "UART_program.d" "adc.d" "main.d" "tm4c123ge6pm_startup_ccs.d" "Inc\APP\AutonomousCar\AutonomousCar.d" "Inc\APP\Calc\calc.d" "Inc\APP\Calc\calc_main.d" "Inc\APP\StopWatch\stopWatch.d" "Inc\HAL\KEYPAD\keypad.d" "Inc\HAL\LCD\lcd.d" "Inc\HAL\MOTOR\motor.d" "Inc\HAL\SWITCH\switch.d" "Inc\HAL\ULTRASONIC\ultrasonic.d" "Inc\LIB\delay.d" 
+	-$(RM) "GPIO.obj" "GPIO_config.obj" "GPT.obj" "GPT_config.obj" "SCB.obj" "SCB_config.obj" "SCHEDULAR.obj" "SYSTICK.obj" "SYSTICK_config.obj" "UART_config.obj" "UART_program.obj" "adc.obj" "main.obj" "tm4c123ge6pm_startup_ccs.obj" "Inc\APP\AutonomousCar\AutonomousCar.obj" "Inc\APP\AutonomousCar\AutonomousCar_HandleMain.obj" "Inc\APP\Calc\calc.obj" "Inc\APP\Calc\calc_main.obj" "Inc\APP\StopWatch\stopWatch.obj" "Inc\HAL\KEYPAD\keypad.obj" "Inc\HAL\LCD\lcd.obj" "Inc\HAL\MOTOR\motor.obj" "Inc\HAL\SWITCH\switch.obj" "Inc\HAL\ULTRASONIC\ultrasonic.obj" "Inc\LIB\delay.obj" 
+	-$(RM) "GPIO.d" "GPIO_config.d" "GPT.d" "GPT_config.d" "SCB.d" "SCB_config.d" "SCHEDULAR.d" "SYSTICK.d" "SYSTICK_config.d" "UART_config.d" "UART_program.d" "adc.d" "main.d" "tm4c123ge6pm_startup_ccs.d" "Inc\APP\AutonomousCar\AutonomousCar.d" "Inc\APP\AutonomousCar\AutonomousCar_HandleMain.d" "Inc\APP\Calc\calc.d" "Inc\APP\Calc\calc_main.d" "Inc\APP\StopWatch\stopWatch.d" "Inc\HAL\KEYPAD\keypad.d" "Inc\HAL\LCD\lcd.d" "Inc\HAL\MOTOR\motor.d" "Inc\HAL\SWITCH\switch.d" "Inc\HAL\ULTRASONIC\ultrasonic.d" "Inc\LIB\delay.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 
