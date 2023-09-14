@@ -1,31 +1,44 @@
-
+/******************************************************************************
+ *  File: AutonomousCar.c
+ *  Description:
+ *      This file contains the implementation of an autonomous car control system.
+ *      It includes the initialization of hardware components, such as sensors,
+ *      buttons, and actuators, as well as the logic for controlling the car's
+ *      movement and displaying information on an LCD screen. The car's behavior
+ *      is based on sensor readings and user inputs from start and stop buttons.
+ *
+ *  Author: Hosseni Gamal
+ *  Date: 12/9/2023
+ *****************************************************************************/
 
 
 #include "AutonomousCar.h"
 
-extern const SYSTIC_ConfigType   SYSTIC_Config [1] ;
-extern const SCB_ConfigType      SCBConfig[SCB_CLOCK_SETTINGS_SIZE];
-extern const Port_ConfigType     portConfig[NUM_PINS];
-extern const GPT_ConfigType      gptConfig [NUM_TIMER];
+/* External configurations and constants */
+extern const SYSTIC_ConfigType SYSTIC_Config[1];
+extern const SCB_ConfigType SCBConfig[SCB_CLOCK_SETTINGS_SIZE];
+extern const Port_ConfigType portConfig[NUM_PINS];
+extern const GPT_ConfigType gptConfig[NUM_TIMER];
 
+/* Define the ultrasonic sensor and LCD display */
+ultraSonic_t ultraSonic1 = {PIN_B2, PIN_B3};
+lcd_t lcd_car = {PIN_E2, PIN_E3, {PIN_A3, PIN_A4, PIN_A5, PIN_A6}, _4_BIT};
 
-ultraSonic_t ultraSonic1  = {PIN_B2, PIN_B3};
-lcd_t        lcd_car      = {PIN_E2, PIN_E3, { PIN_A3, PIN_A4, PIN_A5, PIN_A6}, _4_BIT};
+/* Define start and stop buttons */
+button_t start_button = {PIN_F0, PULL_UP, RELEASED};
+button_t stop_button = {PIN_F4, PULL_UP, RELEASED};
 
-button_t     start_button = {PIN_F0, PULL_UP, RELEASED};
-button_t     stop_button  = {PIN_F4, PULL_UP, RELEASED};
+/* Define ADC configurations for LDR sensors */
+adc_config_t LDR_1 = {.ADCn = 0, .ADC_Channel = ADC_CTL_CH4, .ADC_TRIGGER = 1, .sequencer = ADC_sequencer_3};
+adc_config_t LDR_2 = {.ADCn = 0, .ADC_Channel = ADC_CTL_CH5, .ADC_TRIGGER = 1, .sequencer = ADC_sequencer_3};
 
-
-adc_config_t LDR_1 = {.ADCn = 0,  .ADC_Channel = ADC_CTL_CH4 ,.ADC_TRIGGER = 1, .sequencer = ADC_sequencer_3};
-adc_config_t LDR_2 = {.ADCn = 0,  .ADC_Channel = ADC_CTL_CH5 ,.ADC_TRIGGER = 1, .sequencer = ADC_sequencer_3};
-
-uint32 LDR_L_read;
-uint32 LDR_R_read;
-uint32 distance;
-sint32 LDR_Direction;
-uint8  move_flag;
-uint8  start_move_flag;
-uint16 temp ;
+/* Static variables for sensor readings and control flags */
+static uint32 LDR_L_read;
+static uint32 LDR_R_read;
+static uint32 distance;
+static sint32 LDR_Direction;
+static uint8 move_flag;
+static uint8 start_move_flag;
 
 /***************************************************************************************************
  *  Function: start_stop_condition

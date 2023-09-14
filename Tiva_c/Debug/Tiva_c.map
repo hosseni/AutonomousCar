@@ -1,7 +1,7 @@
 ******************************************************************************
                   TI ARM Linker PC v16.9.4                     
 ******************************************************************************
->> Linked Thu Sep 14 19:34:59 2023
+>> Linked Thu Sep 14 19:44:32 2023
 
 OUTPUT FILE NAME:   <Tiva_c.out>
 ENTRY POINT SYMBOL: "_c_int00"  address: 00002bcd
@@ -102,14 +102,9 @@ section   page    origin      length       input sections
                   20000200    00000030     GPT.obj (.bss:isr_timer)
                   20000230    00000030     (.common:captured_val)
                   20000260    00000018     SCHEDULAR.obj (.bss:TASKS)
-                  20000278    00000004     (.common:LDR_Direction)
-                  2000027c    00000004     (.common:LDR_L_read)
-                  20000280    00000004     (.common:LDR_R_read)
-                  20000284    00000004     (.common:distance)
-                  20000288    00000002     SCHEDULAR.obj (.bss)
-                  2000028a    00000001     (.common:SYSTICK_u8ModeOfInterval)
-                  2000028b    00000001     (.common:move_flag)
-                  2000028c    00000001     (.common:start_move_flag)
+                  20000278    00000012     AutonomousCar_HandleMain.obj (.bss)
+                  2000028a    00000002     SCHEDULAR.obj (.bss)
+                  2000028c    00000001     (.common:SYSTICK_u8ModeOfInterval)
 
 .data      0    20000290    00000059     UNINITIALIZED
                   20000290    0000000c     rtsv7M4_T_le_v4SPD16_eabi.lib : exit.obj (.data:$O1$$)
@@ -246,9 +241,6 @@ address   name
 200002bc  InitPtr                        
 200002c4  LDR_1                          
 200002ca  LDR_2                          
-20000278  LDR_Direction                  
-2000027c  LDR_L_read                     
-20000280  LDR_R_read                     
 200002d5  LEFT_SIDE                      
 200002d9  RIGHT_SIDE                     
 00002ddf  ResetISR                       
@@ -265,7 +257,7 @@ UNDEFED   SHT$$INIT_ARRAY$$Limit
 00002295  SYSTICK_Handler                
 00002151  SYSTICK_Init                   
 000021cd  SYSTICK_setBusyWait            
-2000028a  SYSTICK_u8ModeOfInterval       
+2000028c  SYSTICK_u8ModeOfInterval       
 00002f34  SYSTIC_Config                  
 0000222d  SYSTIC_voidSetIntervalPeriodic 
 000017f1  TIMER0A_Handler                
@@ -329,7 +321,6 @@ ffffffff  binit
 00002807  create_task                    
 00002d55  delay                          
 0000268d  delay_micro                    
-20000284  distance                       
 00002c2d  exit                           
 00000000  g_pfnVectors                   
 00002ef2  gptConfig                      
@@ -351,7 +342,6 @@ ffffffff  binit
 200002e0  main_func_sp                   
 00002859  memcpy                         
 00002a1d  memset                         
-2000028b  move_flag                      
 00002df0  portConfig                     
 00002989  robotInit                      
 00002995  robotMoveForward               
@@ -361,7 +351,6 @@ ffffffff  binit
 000029a9  robotMoveStop                  
 000029f9  robotMoveback                  
 200002dd  start_button                   
-2000028c  start_move_flag                
 00001de1  start_stop_condition           
 200002e4  stop_button                    
 000027fb  tasks_scheduler                
@@ -481,13 +470,7 @@ address   name
 20000200  __STACK_END                    
 20000200  __STACK_TOP                    
 20000230  captured_val                   
-20000278  LDR_Direction                  
-2000027c  LDR_L_read                     
-20000280  LDR_R_read                     
-20000284  distance                       
-2000028a  SYSTICK_u8ModeOfInterval       
-2000028b  move_flag                      
-2000028c  start_move_flag                
+2000028c  SYSTICK_u8ModeOfInterval       
 20000290  __TI_cleanup_ptr               
 20000294  __TI_dtors_ptr                 
 20000298  __TI_enable_exit_profile_output
@@ -513,4 +496,4 @@ ffffffff  binit
 UNDEFED   SHT$$INIT_ARRAY$$Base          
 UNDEFED   SHT$$INIT_ARRAY$$Limit         
 
-[139 symbols]
+[133 symbols]

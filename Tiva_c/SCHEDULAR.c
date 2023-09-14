@@ -3,6 +3,11 @@
  *
  *  Created on: 9/8/2023
  *      Author: HOSSENI GAMAL
+ ******************************************
+ *  File Description:
+ *      This file contains the implementation of a simple task scheduler. It allows tasks to be
+ *      executed at specified intervals and provides the functionality to create and manage tasks.
+ *      The scheduler uses the SysTick timer for timing and task execution.
  ******************************************/
 
 #include "Inc/SERVICES/SCHEDULAR/Schedular_interface.h"
@@ -11,6 +16,10 @@
 static TASK_TCB_t  TASKS[NUM_OF_TASKS];
 static uint16 Ticks;
 
+/**********************************************************************************
+ *  Executes tasks with zero delay and decrements the delay of other tasks.
+ *        Called by the SysTick timer.
+ ************************************************************************************/
 static void Run_Tasks (void)
 {
     uint8 i = 0;
@@ -18,27 +27,39 @@ static void Run_Tasks (void)
     {
         if (TASKS [i].Delay  == 0)
         {
-            /*call [i] task */
+            /* Call [i] task */
             TASKS[i].Copy_PF();
-            TASKS[i].Delay = TASKS[i].periodicty -1;
+            TASKS[i].Delay = TASKS[i].periodicty - 1;
         }
         else
         {
-            TASKS[i].Delay --;
+            TASKS[i].Delay--;
         }
     }
     Ticks++;
 }
 
+/****************************************************************************
+ * @brief Initializes the task scheduler and sets up the SysTick timer.
+ *        This function should be called before creating tasks.
+ *****************************************************************************/
 void tasks_scheduler (void)
 {
-    /*SysTick to be 1 msesc with interval */
-    SYSTIC_voidSetIntervalPeriodic (35, Run_Tasks);
+    /* SysTick to be 1 millisecond with interval, executing Run_Tasks. */
+    SYSTIC_voidSetIntervalPeriodic(1, Run_Tasks);
 }
 
-void create_task (uint8 Priotity, uint16 periodicity , void (*Copy_PF)(void), uint16 Delay)
+/*****************************************************************************************************
+ * @brief Creates a new task with the specified priority, periodicity, function, and initial delay.
+ *        Tasks are managed and executed by the scheduler.
+ * @param Priority: Task priority (lower value means higher priority).
+ * @param periodicity: Task execution interval in milliseconds.
+ * @param Copy_PF: Pointer to the task function.
+ * @param Delay: Initial delay before the task starts executing.
+ ******************************************************************************************************/
+void create_task (uint8 Priority, uint16 periodicity, void (*Copy_PF)(void), uint16 Delay)
 {
-    TASKS[Priotity].periodicty = periodicity;
-    TASKS[Priotity].Copy_PF    = Copy_PF;
-    TASKS[Priotity].Delay = Delay;
+    TASKS[Priority].periodicty = periodicity;
+    TASKS[Priority].Copy_PF = Copy_PF;
+    TASKS[Priority].Delay = Delay;
 }
