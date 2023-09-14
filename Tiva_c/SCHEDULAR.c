@@ -1,4 +1,4 @@
-/******************************************
+/***************************************************************************************************
  * SCHEDULAR.c
  *
  *  File Description:
@@ -7,7 +7,7 @@
  *      The scheduler uses the SysTick timer for timing and task execution.
  *      Author: HOSSENI GAMAL
  *  Created on: 9/8/2023
- ******************************************/
+ **************************************************************************************************/
 
 #include "Inc/SERVICES/SCHEDULAR/Schedular_interface.h"
 #include "Inc/MCAL/SysTick/SYSTICK_interface.h"
