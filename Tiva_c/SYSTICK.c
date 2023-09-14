@@ -92,6 +92,16 @@ void SYSTICK_Init (const SYSTIC_ConfigType ConfigPtr[] )
     }
 }
 
+
+/******************************************************************************
+ * \Syntax          : void SYSTICK_setBusyWait(uint32 delay_ms)
+ * \Description     : This function creates a busy wait delay of the specified milliseconds using the SysTick timer.
+ * \Sync\Async      : Synchronous
+ * \Reentrancy      : Non-Reentrant
+ * \Parameters (in) : delay_ms - The delay time in milliseconds.
+ * \Parameters (out): None
+ * \Return value    : None
+ *******************************************************************************/
 void SYSTICK_setBusyWait (uint32 delay_ms)
 {
     //set count value
@@ -113,7 +123,16 @@ void SYSTICK_setBusyWait (uint32 delay_ms)
 
 
 }
-
+/******************************************************************************
+ * \Syntax          : void SYSTIC_voidSetIntervalPeriodic(uint32 delay_ms, void (* Copy_PF)(void))
+ * \Description     : This function sets up a periodic timer interval using the SysTick timer.
+ * \Sync\Async      : Synchronous
+ * \Reentrancy      : Non-Reentrant
+ * \Parameters (in) : delay_ms - The interval duration in milliseconds.
+ *                    Copy_PF - Pointer to the function to be called periodically.
+ * \Parameters (out): None
+ * \Return value    : None
+ *******************************************************************************/
 void SYSTIC_voidSetIntervalPeriodic (uint32 delay_ms, void (* Copy_PF)(void))
 {
     /*disable timer */
@@ -143,6 +162,16 @@ void SYSTIC_voidSetIntervalPeriodic (uint32 delay_ms, void (* Copy_PF)(void))
         SYSTICK_u8ModeOfInterval = SYSTICK_PERIOD_INTERVAL;
 
 }
+/******************************************************************************
+ * \Syntax          : void SYSTICK_Handler(void)
+ * \Description     : This is the SysTick interrupt handler function.
+ *                    It is called when a periodic timer interval elapses.
+ * \Sync\Async      : Asynchronous (interrupt-driven)
+ * \Reentrancy      : Non-Reentrant
+ * \Parameters (in) : None
+ * \Parameters (out): None
+ * \Return value    : None
+ *******************************************************************************/
 void SYSTICK_Handler (void)
 {
     if (SYSTICK_u8ModeOfInterval == SYSTICK_SINGLE_INTERVAL)
