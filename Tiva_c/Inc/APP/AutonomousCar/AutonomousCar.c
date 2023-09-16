@@ -7,8 +7,8 @@
 
 #include "AutonomousCar.h"
 
-carSide_t LEFT_SIDE  = { PIN_B7, PIN_B1, PIN_B0, 60 };
-carSide_t RIGHT_SIDE = { PIN_E5, PIN_B5, PIN_B4, 60 };
+carSide_t LEFT_SIDE  = { PIN_B7, PIN_B1, PIN_B0, 90 };
+carSide_t RIGHT_SIDE = { PIN_E5, PIN_B5, PIN_B4, 90 };
 
 void robotInit()
 {

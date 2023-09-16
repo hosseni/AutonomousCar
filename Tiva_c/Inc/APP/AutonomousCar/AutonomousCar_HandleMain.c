@@ -36,7 +36,11 @@ static uint32 LDR_R_read;
 static uint32 distance;
 static sint32 LDR_Direction;
 static uint8 move_flag;
-static uint8 start_move_flag;
+static uint32 temp_read;
+
+
+uint8 start_move_flag;
+uint16 counter_time_out ;
 
 /***************************************************************************************************
  *  Function: start_stop_condition
@@ -58,7 +62,8 @@ void start_stop_condition (void)
     }
     else if (PRESSED == button_get_state(&stop_button))
     {
-        start_move_flag = 0;
+        start_move_flag  = 0;
+        counter_time_out = 0;
     }
 }
 
@@ -89,7 +94,7 @@ void ldr_swing_car(void)
     }
     else if (move_flag == 1)
     {
-        if (LDR_Direction > 400)
+        if (LDR_Direction > 900)
         {
             robotMoveRight();
         }
@@ -120,6 +125,11 @@ void ldr_swing_car(void)
 
 }
 
+void get_temp (void)
+{
+    temp_read = ADC_Read_internal_temp();
+    temp_read = (long)(147.5 - ((3.3 * 75.0 * (double)temp_read) / 4096.0));
+}
 /***************************************************************************************************
  *  Function: lcd_display
  *  Description:
@@ -131,12 +141,19 @@ void ldr_swing_car(void)
  ***************************************************************************************************/
 void lcd_display(void)
 {
-    lcd_send_command(&lcd_car, _LCD_CLEAR);
-    lcd_send_string_pos(&lcd_car , "D : ", ROW0, COL0);
-    lcd_send_number_pos(&lcd_car , distance, ROW0, COL4);
+    static uint8 time_in_sec = 0;
+    if ((start_move_flag == 1)&&((counter_time_out % 20) == 0))
+    {
+        lcd_send_command(&lcd_car, _LCD_CLEAR);
+        lcd_send_string_pos(&lcd_car , "D:", ROW0, COL0);
+        lcd_send_number_pos(&lcd_car , distance, ROW0, COL2);
+        lcd_send_string_pos(&lcd_car , "T:", ROW1, COL0);
+        lcd_send_number_pos(&lcd_car , temp_read, ROW1, COL4);
+        lcd_send_string_pos(&lcd_car, "Time Out:",ROW0, COL5);
+        lcd_send_number_pos(&lcd_car , time_in_sec++, ROW0, COL14);
+    }
+
 }
-
-
 /***************************************************************************************************
  *  Function: avoid_obstacles
  *  Description:

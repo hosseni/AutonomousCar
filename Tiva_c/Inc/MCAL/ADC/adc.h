@@ -119,5 +119,7 @@ typedef struct adc
 
 void ADC_Init(const adc_config_t*const PTR);
 unsigned int ADC_Read_Data(const adc_config_t* PTR);
+unsigned int ADC_Read_internal_temp(void);
+
 
 #endif //ADC_H

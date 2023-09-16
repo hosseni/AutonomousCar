@@ -40,6 +40,8 @@ void start_stop_condition (void);
 void ldr_swing_car(void);
 void lcd_display(void);
 void avoid_obstacles(void);
+void get_temp (void);
+
 
 
 

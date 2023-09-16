@@ -33,6 +33,7 @@
 /**********************************************************************************************************************
  *  GLOBAL DATA
  *********************************************************************************************************************/
+extern uint8 start_move_flag;
 
 /**********************************************************************************************************************
  *  LOCAL FUNCTION PROTOTYPES
@@ -59,6 +60,7 @@
 SYSTIC_ConfigType* InitPtr = NULL;
 static void (* SysTick_CallBack) (void) = NULL;
  uint8 SYSTICK_u8ModeOfInterval;
+ extern uint16 counter_time_out;
 
 void SYSTICK_Init (const SYSTIC_ConfigType ConfigPtr[] )
 {
@@ -174,6 +176,15 @@ void SYSTIC_voidSetIntervalPeriodic (uint32 delay_ms, void (* Copy_PF)(void))
  *******************************************************************************/
 void SYSTICK_Handler (void)
 {
+    if((counter_time_out <= 1200) && (start_move_flag == 1))
+    {
+        counter_time_out++;
+    }
+    else
+    {
+        counter_time_out = 0;
+        start_move_flag = 0;
+    }
     if (SYSTICK_u8ModeOfInterval == SYSTICK_SINGLE_INTERVAL)
         {
         /*disable timer */

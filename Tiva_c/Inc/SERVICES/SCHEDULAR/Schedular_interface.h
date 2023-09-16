@@ -11,7 +11,7 @@
 
 #include "../../LIB/STD_TYPES.h"
 
-#define NUM_OF_TASKS        3
+#define NUM_OF_TASKS        5
 
 
 

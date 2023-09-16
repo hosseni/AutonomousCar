@@ -6,18 +6,8 @@
 
 //#define NULL (unsigned int*)0
 
-
 void ADC_Init(const adc_config_t*const PTR)
 {
-
-    GPIO_PORTD_AFSEL_R |= (1<<2);
-    GPIO_PORTD_DEN_R &= ~(1<<2);
-    GPIO_PORTD_AMSEL_R|= (1<<2);
-
-    GPIO_PORTD_AFSEL_R |= (1<<3);
-    GPIO_PORTD_DEN_R &= ~(1<<3);
-    GPIO_PORTD_AMSEL_R|= (1<<3);
-
     if(PTR != NULL)
     {
         /*Determine Base address for the adc module*/
@@ -46,8 +36,8 @@ void ADC_Init(const adc_config_t*const PTR)
 
         if(PTR->sequencer == ADC_sequencer_3)
         {
-            //            SET_BIT(ADC_GEN_REG(base_add , ADCSSCTL3_reg_offset) , 1);
-            //            SET_BIT(ADC_GEN_REG(base_add , ADCSSCTL3_reg_offset) , 2);
+//            SET_BIT(ADC_GEN_REG(base_add , ADCSSCTL3_reg_offset) , 1);
+//            SET_BIT(ADC_GEN_REG(base_add , ADCSSCTL3_reg_offset) , 2);
             SET_BIT(ADC0_SSCTL3_R , 1);
             SET_BIT(ADC0_SSCTL3_R , 2);
         }
@@ -84,10 +74,13 @@ unsigned int ADC_Read_Data(const adc_config_t* PTR)
             CLR_BIT(base_add , PTR->sequencer );
             //ADC_GEN_REG(base_add , ADCSSMUX3_reg_offset) = PTR->ADC_Channel;
             ADC0_SSMUX3_R =  PTR->ADC_Channel;
-
+            /*Get input sample from channel */
+            ADC0_SSCTL3_R =  0x06;
+            //CLR_BIT(ADC0_SSCTL3_R , 0);
+            //CLR_BIT(ADC0_SSCTL3_R , 3);
             /* enable ADC sequencer  */
-
             ADC0_ACTSS_R |= (1<<3);
+
             /* Enable conversion or start sampling data from analog channel */
             //SET_BIT(ADC_GEN_REG(base_add , ADCPSSI_reg_offset) , 3);
             SET_BIT(ADC0_PSSI_R , 3);
@@ -110,4 +103,39 @@ unsigned int ADC_Read_Data(const adc_config_t* PTR)
         //do nothing
     }
     return adc_value;
+}
+
+
+unsigned int ADC_Read_internal_temp(void)
+{
+    unsigned int adc_value;
+    /*Determine Base address for the adc module*/
+    unsigned int base_add = ADCn_BASE(0);
+    /* disable sequencer during configuration */
+    CLR_BIT(base_add , ADC_sequencer_3 );
+    /*The temperature sensor is read during the first sample of the sample sequence.*/
+    //ADC0_SSCTL3_R =  0x8;
+    SET_BIT(ADC0_SSCTL3_R , 3);
+    //SET_BIT(ADC0_SSCTL3_R , 2);
+    //SET_BIT(ADC0_SSCTL3_R , 1);
+    //ADC0_SSCTL3_R |= ADC_SSCTL3_TS0
+    /*Get input sample from internal temperature sensor */
+    ADC0_SSMUX3_R =  0x8;
+    /* enable ADC sequencer  */
+    ADC0_ACTSS_R |= (1<<3);
+
+    /* Enable conversion or start sampling data from analog channel */
+    SET_BIT(ADC0_PSSI_R , 3);
+
+    /*Poll until conversion ends*/
+    //while (GET_BIT(ADC0_RIS_R , 3) == 0);
+    while (!(ADC0_RIS_R & ADC_RIS_INR3));
+
+    /*Read number of levels*/
+    adc_value = ADC0_SSFIFO3_R;
+
+    /*clear end of conversion flag*/
+    SET_BIT(ADC0_ISC_R , 3);
+
+return adc_value;
 }

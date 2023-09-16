@@ -13,29 +13,41 @@
 #include "Inc/MCAL/SysTick/SYSTICK_interface.h"
 
 static TASK_TCB_t  TASKS[NUM_OF_TASKS];
-static uint16 Ticks;
+uint8 run_flag;
+//static uint16 Ticks;
 
 /**********************************************************************************
  *  Executes tasks with zero delay and decrements the delay of other tasks.
  *        Called by the SysTick timer.
  ************************************************************************************/
+void set_run_flag (void)
+{
+    run_flag = 1;
+}
 static void Run_Tasks (void)
 {
     uint8 i = 0;
-    for (i = 0 ; i < NUM_OF_TASKS ; i++)
+    while (1)
     {
-        if (TASKS [i].Delay  == 0)
+        if (run_flag == 1)
         {
-            /* Call [i] task */
-            TASKS[i].Copy_PF();
-            TASKS[i].Delay = TASKS[i].periodicty - 1;
+            run_flag = 0;
+
+            for (i = 0 ; i < NUM_OF_TASKS ; i++)
+            {
+                if (TASKS [i].Delay  == 0)
+                {
+                    /* Call [i] task */
+                    TASKS[i].Copy_PF();
+                    TASKS[i].Delay = TASKS[i].periodicty - 1;
+                }
+                else
+                {
+                    TASKS[i].Delay--;
+                }
+            }
         }
-        else
-        {
-            TASKS[i].Delay--;
-        }
-    }
-    Ticks++;
+    }   //Ticks++;
 }
 
 /****************************************************************************
@@ -45,7 +57,9 @@ static void Run_Tasks (void)
 void tasks_scheduler (void)
 {
     /* SysTick to be 1 millisecond with interval, executing Run_Tasks. */
-    SYSTIC_voidSetIntervalPeriodic(1, Run_Tasks);
+    SYSTIC_voidSetIntervalPeriodic(50, set_run_flag);
+    Run_Tasks();
+
 }
 
 /*****************************************************************************************************
